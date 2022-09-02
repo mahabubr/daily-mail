@@ -13,15 +13,21 @@ const loadCatagoryData = async () => {
 
 // Show Catagory Data Loadded
 const displayCatagoryData = catagoryList => {
+
     const displayCatagory = document.getElementById('display-catagory')
+
     catagoryList.forEach(list => {
+
         const { category_name, category_id } = list;
         const catagoryDiv = document.createElement('div');
         catagoryDiv.classList.add('font-medium', 'text-lg', 'text-slate-600')
         catagoryDiv.innerHTML = `
-        <a onclick="displayAllNewsById('${category_id}')" href="#">${category_name}</a>
+        <div>  
+            <a class="hover:bg-blue-500 hover:p-2 hover:text-white hover:rounded-xl" onclick="displayAllNewsById('${category_id}')" href="#">${category_name}</a>
+        </div>
         `
         displayCatagory.appendChild(catagoryDiv);
+
     })
 }
 
@@ -36,6 +42,7 @@ const displayAllNewsById = async category_id => {
     catch (err) {
         alert(err)
     }
+    
 }
 // Show All News In a Category
 const showAllNewsById = catagoryNews => {
@@ -45,6 +52,8 @@ const showAllNewsById = catagoryNews => {
 
     const displayCatagoryCard = document.getElementById('display-catagory-card');
     displayCatagoryCard.textContent = '';
+
+
     catagoryNews.forEach(news => {
 
         const { thumbnail_url, title, details, author, total_view } = news;
@@ -86,8 +95,7 @@ const showAllNewsById = catagoryNews => {
                             </div>
                         </div>
                         <div>
-                            <a class="text-5xl text-blue-600 hover:text-blue-700" href=""><i
-                                    class="fa-solid fa-arrow-right-to-bracket"></i></a>
+                            <a class="text-5xl text-blue-600 hover:text-blue-700" href=""><i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                     <!-- Card Footer Section End -->
@@ -96,6 +104,7 @@ const showAllNewsById = catagoryNews => {
         displayCatagoryCard.appendChild(cardDiv);
     })
 }
+
 
 loadCatagoryData()
 displayAllNewsById('08')
