@@ -40,14 +40,15 @@ const displayAllNewsById = async category_id => {
 // Show All News In a Category
 const showAllNewsById = catagoryNews => {
 
-    
+    const itemsFounds = document.getElementById('items-found-details');
+    itemsFounds.innerText = `${catagoryNews.length}`
 
     const displayCatagoryCard = document.getElementById('display-catagory-card');
     displayCatagoryCard.textContent = '';
     catagoryNews.forEach(news => {
 
         const { thumbnail_url, title, details, author, total_view } = news;
-        const {name, published_date, img} = author
+        const { name, published_date, img } = author
 
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('card', 'lg:card-side', 'bg-base-100', 'shadow-xl', 'mt-12')
