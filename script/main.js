@@ -39,12 +39,15 @@ const displayAllNewsById = async category_id => {
 }
 // Show All News In a Category
 const showAllNewsById = catagoryNews => {
+
+    
+
     const displayCatagoryCard = document.getElementById('display-catagory-card');
     displayCatagoryCard.textContent = '';
     catagoryNews.forEach(news => {
 
-        const { thumbnail_url, title, details, author } = news;
-        console
+        const { thumbnail_url, title, details, author, total_view } = news;
+        const {name, published_date, img} = author
 
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('card', 'lg:card-side', 'bg-base-100', 'shadow-xl', 'mt-12')
@@ -53,24 +56,24 @@ const showAllNewsById = catagoryNews => {
                     <figure><img src="${thumbnail_url}" alt="Album"></figure>
                 </div>
                 <div class="card-body">
-                    <h2 class="card-title font-bold">${title}</h2>
+                    <h2 class="card-title font-bold">${title ? title : 'N/A'}</h2>
                     <p>${details.slice(0, 400)}...<p>
                     <!-- Card Footer Section Start -->
                 <div class="card-actions justify-between items-center">
                         <div class="flex justify-center items-center">
                             <div class="avatar mr-6">
                                 <div class="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                    <img src="https://placeimg.com/192/192/people" />
+                                    <img src="${img}" />
                                 </div>
                             </div>
                             <div>
-                                <h3 class="text-xl font-medium">Jane Cooper</h3>
-                                <span>Jan 10, 2022</span>
+                                <h3 class="text-xl font-medium">${name ? name : "N/A"}</h3>
+                                <span>${published_date ? published_date : 'N/A'}</span>
                             </div>
                         </div>
                         <div class="flex justify-center items-center">
                             <a href=""><i class="fa-solid fa-eye"></i></a>
-                            <h3 class="ml-2 font-medium">1.5M</h3>
+                            <h3 class="ml-2 font-medium">${total_view ? total_view : 'N/A'}</h3>
                         </div>
                         <div>
                             <div class="rating">
