@@ -13,17 +13,17 @@ const loadCatagoryData = async () => {
 
 // Show Catagory Data Loadded
 const displayCatagoryData = catagoryList => {
-
     const displayCatagory = document.getElementById('display-catagory')
 
     catagoryList.forEach(list => {
 
         const { category_name, category_id } = list;
+
         const catagoryDiv = document.createElement('div');
         catagoryDiv.classList.add('font-medium', 'text-lg', 'text-slate-600')
         catagoryDiv.innerHTML = `
         <div>  
-            <a class="hover:bg-blue-500 hover:p-2 hover:text-white hover:rounded-xl" onclick="displayAllNewsById('${category_id}')" href="#">${category_name}</a>
+        <a class="hover:bg-blue-500 hover:p-2 hover:text-white hover:rounded-xl" onclick="displayAllNewsById('${category_id}')" href="#">${category_name}</a>
         </div>
         `
         displayCatagory.appendChild(catagoryDiv);
@@ -33,6 +33,7 @@ const displayCatagoryData = catagoryList => {
 
 // Loded All News In a Category
 const displayAllNewsById = async category_id => {
+    setLoader(true)
     try {
         const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`
         const response = await fetch(url);
@@ -42,19 +43,16 @@ const displayAllNewsById = async category_id => {
     catch (err) {
         alert(err)
     }
-    
 }
 // Show All News In a Category
 const showAllNewsById = catagoryNews => {
-
     const itemsFounds = document.getElementById('items-found-details');
     itemsFounds.innerText = `${catagoryNews.length}`
 
     const displayCatagoryCard = document.getElementById('display-catagory-card');
     displayCatagoryCard.textContent = '';
-
-
     catagoryNews.forEach(news => {
+
 
         const { thumbnail_url, title, details, author, total_view } = news;
         const { name, published_date, img } = author
@@ -102,7 +100,19 @@ const showAllNewsById = catagoryNews => {
                 </div>
         `
         displayCatagoryCard.appendChild(cardDiv);
+        setLoader(false)
     })
+}
+
+// Set Loader
+const setLoader = isLoading => {
+    const loader = document.getElementById('loader')
+    if (isLoading === true) {
+        loader.classList.remove('hidden')
+    }
+    else {
+        loader.classList.add('hidden')
+    }
 }
 
 
