@@ -33,10 +33,10 @@
                 </div>
                 <div class="flex-none">
                     <div class="dropdown dropdown-end">
-                        <a href="#" class="text-xl font-semibold text-blue-600 border-b-2 border-blue-700">News</a>
+                        <a href="../index.html" class="text-xl font-semibold text-blue-600">News</a>
                     </div>
                     <div class="dropdown dropdown-end">
-                        <a href="blog/blog.html" class="text-xl font-semibold text-blue-600 mx-8">Blog</a>
+                        <a href="#" class="text-xl font-semibold text-blue-600 mx-8 border-b-2 border-blue-700">Blog</a>
                     </div>
                     <div class="dropdown dropdown-end">
                         <label tabindex="0" class="btn btn-ghost btn-circle avatar">
@@ -63,86 +63,46 @@
     </header>
     <!-- Header Section End -->
     <!-- Main Section Start -->
-    <main class="w-10/12 mx-auto">
-        <!-- Catagory Routing Section Start  -->
-        <section class="mt-12">
-            <div id="display-catagory"
-                class="grid grid-cols-2 md:flex md:justify-between md:items-center gap-6 flex-wrap">
-                <!-- Catagory Routing Parse Info main.js -->
-            </div>
-        </section>
-        <!-- Catagory Routing Section End  -->
-        <!-- Items Found Section Start  -->
-        <section class="mt-12">
-            <div class="bg-white px-7 py-5 rounded-xl text-xl font-semibold flex justify-start items-center">
-                <a class="text-red-600" href=""><i class="fa-solid fa-circle-info"></i></a>
-                <h2 class="ml-5 text-green-700"><span id="items-found-details">0</span> items found for category <span
-                        id="items-found-details-name"></span></h2>
-            </div>
-        </section>
-        <!-- Items Found Section End  -->
-        <!-- Sort by View Section Start  -->
-        <section class="mt-12">
-            <div class="block md:flex justify-between items-center">
-                <div class="flex justify-center items-center">
-                    <div class="text-lg font-medium mr-6">
-                        <h3>Sort By View:</h3>
-                    </div>
-                    <div>
-                        <select class="select select-bordered w-full max-w-xs">
-                            <option disabled selected>Default</option>
-                            <option>Sort By Name</option>
-                            <option>Sort By Date</option>
-                            <option>Sort By View</option>
-                        </select>
-                    </div>
+    <main class="w-4/12 mx-auto mt-20">
+        <section>
+            <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                <div class="collapse-title text-xl font-medium">
+                    difference between var, let and const
                 </div>
-                <div class="mt-6 md:mt-0">
-                    <div class="flex justify-center items-center">
-                        <div class="mr-2">
-                            <button class="btn btn-primary">Today’s Pick</button>
-                        </div>
-                        <div>
-                            <button id="class" class="btn btn-outline btn-primary">Trending</button>
-                        </div>
-                    </div>
+                <div class="collapse-content">
+                    <p>
+                        var is just like let but var is used to declare a variable value at top of the program, its
+                        hoisted. `let` is a signal that the variable may be reassigned, such as a counter in a
+                        loop, or a value swap in an algorithm. `const` is a signal that the identifier won't be
+                        reassigned.
+                    </p>
                 </div>
             </div>
-        </section>
-        <!-- Sort by View Section End  -->
-        <!-- Loader Section Start  -->
-        <section>
-            <div id="loader" class="text-center hidden" role="status">
-                <svg class="inline mr-2 w-8 h-8 text-slate-500 animate-spin dark:text-gray-600 fill-pink-500"
-                    viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                        fill="currentColor" />
-                    <path
-                        d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                        fill="currentFill" />
-                </svg>
-                <span class="sr-only">Loading...</span>
+            <div tabindex="0" class="collapse mt-2 collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                <div class="collapse-title text-xl font-medium">
+                    arrow function vs normal function
+                </div>
+                <div class="collapse-content">
+                    <p>
+                        Unlike regular functions, arrow functions do not have their own this . The value of this inside an arrow function remains the same throughout the lifecycle of the function and is always bound to the value of this in the closest non-arrow parent function.
+                    </p>
+                </div>
             </div>
-        </section>
-        <!-- Loader Section End  -->
-        <!-- Cart Section Start -->
-        <section id="display-catagory-card" class="mt-20">
-            <!-- Card Body Parse Info main.js -->
-        </section>
-        <!-- Cart Section End -->
-        <section>
-            <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div id="modal-area" class="modal-box">
-                    <!-- Modal Body -->
+            <div tabindex="0" class="collapse mt-2 collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                <div class="collapse-title text-xl font-medium">
+                    arrow function vs normal function
+                </div>
+                <div class="collapse-content">
+                    <p>
+                        Unlike regular functions, arrow functions do not have their own this . The value of this inside an arrow function remains the same throughout the lifecycle of the function and is always bound to the value of this in the closest non-arrow parent function.
+                    </p>
                 </div>
             </div>
         </section>
     </main>
     <!-- Main Section End -->
     <!-- Footer Section Start -->
-    <footer class="footer items-center p-4 bg-neutral text-neutral-content mt-20">
+    <footer class="footer items-center p-4 bg-neutral text-neutral-content mt-96 ">
         <div class="items-center grid-flow-col">
             <svg width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
                 clip-rule="evenodd" class="fill-current">
