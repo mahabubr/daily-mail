@@ -23,7 +23,7 @@ const displayCatagoryData = catagoryList => {
         catagoryDiv.classList.add('font-medium', 'text-lg', 'text-slate-600')
         catagoryDiv.innerHTML = `
         <div>  
-    <a class="hover:bg-slate-400 hover:p-2 hover:text-slate-800 hover:rounded-xl" onclick="displayAllNewsById('${category_id}')" href="#">${category_name}</a>
+    <a onclick="displayAllNewsById('${category_id}')" href="#">${category_name}</a>
         </div>
         `
         displayCatagory.appendChild(catagoryDiv);
