@@ -50,7 +50,7 @@ const showAllNewsById = catagoryNews => {
     const itemsFounds = document.getElementById('items-found-details');
     itemsFounds.innerText = `${catagoryNews.length}`
 
-    catagoryNews.sort((a, b) => (a.total_view - b.total_view));
+    catagoryNews.sort((a, b) => (b.total_view - a.total_view));
 
     const displayCatagoryCard = document.getElementById('display-catagory-card');
     displayCatagoryCard.textContent = '';
