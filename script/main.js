@@ -54,7 +54,7 @@ const showAllNewsById = catagoryNews => {
     catagoryNews.forEach(news => {
 
 
-        const { thumbnail_url, title, details, author, total_view } = news;
+        const { thumbnail_url, title, details, author, total_view, _id } = news;
         const { name, published_date, img } = author
 
         const cardDiv = document.createElement('div');
@@ -93,7 +93,7 @@ const showAllNewsById = catagoryNews => {
                             </div>
                         </div>
                         <div>
-                            <a class="text-5xl text-blue-600 hover:text-blue-700" href=""><i class="fa-solid fa-arrow-right"></i></a>
+                            <label onclick="modalDataLoaded('${_id}')" for="my-modal-6" class="text-5xl text-blue-600 hover:text-blue-700" ><i class="fa-solid fa-arrow-right"></i></label>
                         </div>
                     </div>
                     <!-- Card Footer Section End -->
@@ -102,6 +102,37 @@ const showAllNewsById = catagoryNews => {
         displayCatagoryCard.appendChild(cardDiv);
         setLoader(false)
     })
+}
+
+const modalDataLoaded = async (id) => {
+    const url = `https://openapi.programming-hero.com/api/news/${id}`
+    const response = await fetch(url);
+    const data = await response.json();
+    displayModalDataLoaded(data.data[0])
+}
+
+const displayModalDataLoaded = data => {
+
+    const { image_url, title, details, others_info } = data
+
+    const modalArea = document.getElementById('modal-area')
+    const modalDiv = document.createElement('div')
+
+    modalDiv.innerHTML = `
+                <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+                            <div class="modal modal-bottom sm:modal-middle">
+                            <div class="modal-box">
+                            <h3 class="font-bold text-xl text-red-600 mb-2">${others_info.is_trending ? 'is Tranding' : 'N/A'}</h3>
+                            <figure><img class="w-full" src="${image_url}" alt="Shoes" /></figure>
+                                <h3 class="font-bold text-lg mt-2">${title}</h3>
+                                <p class="py-4">${details}</p>
+                                <div class="modal-action">
+                                <label for="my-modal-6" class="btn">Enjoy More News</label>
+                                </div>
+                            </div>
+                    </div>
+    `
+    modalArea.appendChild(modalDiv)
 }
 
 // Set Loader
